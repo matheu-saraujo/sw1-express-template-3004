@@ -13,10 +13,12 @@ app.get('/', (request,response) => {
 });
 
 
-app.get('/tabuada', (request, response) => {
+app.get('/tabuada/:numero', (request, response) => {
     let resultado = [];
+    const numero = request.params['numero']
     for(let cont = 1; cont <=10; cont++){
-        resultado.push(cont * 5)
+        //resultado.push(cont * 5);
+        resultado.push(cont * numero)
     }
     response.render('tabuada', {valores : resultado});
 });
